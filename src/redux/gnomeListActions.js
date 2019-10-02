@@ -5,9 +5,9 @@ import mockData from "../mocks/mock-gnomes.json";
  */
 
 // fetch gnomes
-export const FETCH_GNOMES_BEGIN = "FETCH_GNOMES_BEGIN";
+export const FETCH_GNOMES_BEGIN = "FETCH_GNOMES_BEGIN"; // TODO: loading
 export const FETCH_GNOMES_SUCCESS = "FETCH_GNOMES_SUCCESS";
-export const FETCH_GNOMES_FAILURE = "FETCH_GNOMES_FAILURE";
+export const FETCH_GNOMES_FAILURE = "FETCH_GNOMES_FAILURE"; //TODO:
 
 /*
  * FUNCTIONS
@@ -24,11 +24,10 @@ export const fetchAllGnomes = () => {
                 const response = mockData;
                 // success
                 dispatch(fetchAllGnomesSuccess(response))
-            }, 2000)
+            }, 1000)
         } catch (err) {
             dispatch(fetchAllGnomesFailure(err))
         }
-        
     }
 }
 
