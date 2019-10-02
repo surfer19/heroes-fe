@@ -1,5 +1,4 @@
 import mockData from "../mocks/mock-gnomes.json";
-import { checkCacheValid } from "redux-cache";
 
 /*
  * CONSTANTS

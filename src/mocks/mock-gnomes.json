@@ -55,6 +55,55 @@
             "friends": [
                 "Fizwood Voidtossle"
             ]
+        },
+        {
+            "id": 4,
+            "name": "Malbin Magnaweaver",
+            "thumbnail": "http://www.publicdomainpictures.net/pictures/10000/nahled/zebra-head-11281366876AZ3M.jpg",
+            "age": 89,
+            "weight": 43.506973,
+            "height": 101.6974,
+            "hair_color": "Black",
+            "professions": [
+                "Smelter",
+                " Tinker"
+            ],
+            "friends": [
+                "Fizkin Fussslicer",
+                "Cogwitz Chillwidget"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Zedkin Quickbuster",
+            "thumbnail": "http://www.publicdomainpictures.net/pictures/10000/nahled/1-1193219094.jpg",
+            "age": 273,
+            "weight": 38.742382,
+            "height": 91.54829,
+            "hair_color": "Red",
+            "professions": [
+                "Cook"
+            ],
+            "friends": [
+                "Libalia Quickbooster",
+                "Whitwright Mystwhistle"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Emmadette Gimbalpower",
+            "thumbnail": "http://www.publicdomainpictures.net/pictures/20000/nahled/stingray.jpg",
+            "age": 212,
+            "weight": 40.681095,
+            "height": 98.701645,
+            "hair_color": "Green",
+            "professions": [],
+            "friends": [
+                "Ecki Gyrobuster",
+                "Zedkin Nozzlespackle",
+                "Milli Clankswhistle",
+                "Libalia Magnatink"
+            ]
         }
     ]
 }

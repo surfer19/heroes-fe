@@ -11,12 +11,14 @@ const store = configureStore()
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <Route exact path="/" component={GnomeList} />
-        <Route path="/detail/:id" component={GnomeDetail} />
-      </Router>
-    </Provider>
+    <div className="container">
+      <Provider store={store}>
+        <Router>
+          <Route exact path="/" component={GnomeList} />
+          <Route path="/detail/:id" component={GnomeDetail} />
+        </Router>
+      </Provider>
+    </div>
   );
 }
 

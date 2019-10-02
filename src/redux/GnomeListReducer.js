@@ -2,7 +2,7 @@ import {
     FETCH_GNOMES_BEGIN, 
     FETCH_GNOMES_SUCCESS, 
     FETCH_GNOMES_FAILURE 
-} from "./GnomeListActions.js";
+} from "./gnomeListActions";
 
 const defaultState = {
     allGnomes: []   

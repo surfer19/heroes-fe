@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from "react-redux"
-import { Link } from "react-router-dom";
+import GnomeItem from "../GnomeItem"
 
-import { fetchAllGnomes } from '../../redux/GnomeListActions.js';
+import { fetchAllGnomes } from '../../redux/gnomeListActions';
 
 class GnomeList extends React.Component {
     componentDidMount() {
@@ -13,17 +13,13 @@ class GnomeList extends React.Component {
     render() {
         if(this.props.allGnomes.length > 0) {
             return (
-                <ul>
+                <div className="row">
                     {this.props.allGnomes.map(gnome => (
-                    // TODO: component
-                    <li key={gnome.id}>
-                        <img src={gnome.thumbnail} width="100" alt="image"/>
-                        <p>{gnome.name}</p>
-                        <p>{gnome.age}</p>
-                        <Link to={`/detail/${gnome.id}`}>LINK</Link>
-                    </li>
+                        <div className="col col-md-3 mt-3" key={gnome.id}>
+                            <GnomeItem gnome={gnome}/>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )
         } else {
             return (
