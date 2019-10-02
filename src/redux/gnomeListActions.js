@@ -1,4 +1,5 @@
-import mockData from "../mocks/mock-gnomes.json";
+// import mockData from "../mocks/mock-gnomes.json";
+import axios from "axios";
 
 /*
  * CONSTANTS
@@ -18,13 +19,17 @@ export const fetchAllGnomes = () => {
     return async dispatch => { //         
         try {
             dispatch(fetchAllGnomesBegin())
-            // setTimeout for testing purpose
-            setTimeout(() => {
-                // call api 
-                const response = mockData;
-                // success
-                dispatch(fetchAllGnomesSuccess(response))
-            }, 1000)
+            // for testing purpose
+            // setTimeout(async() => {
+            // call api
+            const response = (await axios.get(
+                "http://raw.githubusercontent.com/rrafols/mobile_test/master/data.json"
+            )).data;
+            console.log('response', response.data)
+            // const response = mockData;
+            // success
+            dispatch(fetchAllGnomesSuccess(response))
+            // }, 1000)
         } catch (err) {
             dispatch(fetchAllGnomesFailure(err))
         }
