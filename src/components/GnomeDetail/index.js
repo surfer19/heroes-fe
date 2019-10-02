@@ -4,9 +4,9 @@ import { selectItemById } from "./selectors"
 
 class GnomeDetail extends React.Component {
     componentDidMount() {
-        console.log('props', this.props.gnomeData)
     }
     render () {
+        if (this.props.gnomeData) {
         const gnome = this.props.gnomeData;
         return (
             <div>
@@ -15,12 +15,16 @@ class GnomeDetail extends React.Component {
                 {gnome.weight}
             </div>
         )
+        }
+        else return <div>nic</div>
     }
 }
 
+const mapStateToProps = (state, props) => {
+    return {
+        gnomeData: selectItemById(state, props.match.params.id)
+    }
+}
 
-const mapStateToProps = (state) => ({
-    gnomeData: selectItemById(state, 0)
-})
 
 export default connect(mapStateToProps)(GnomeDetail)

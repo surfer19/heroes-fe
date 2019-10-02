@@ -2,13 +2,13 @@ import {
     FETCH_GNOMES_BEGIN, 
     FETCH_GNOMES_SUCCESS, 
     FETCH_GNOMES_FAILURE 
-} from "./gnomeListActions";
+} from "./GnomeListActions.js";
 
 const defaultState = {
-    allGnomes: []
+    allGnomes: []   
 }
 
-export const rootReducer = (state, action) => {
+const gnomeListReducer = (state = defaultState, action) => {
     switch (action.type) {
         case FETCH_GNOMES_BEGIN:
             return {
@@ -24,6 +24,8 @@ export const rootReducer = (state, action) => {
                 ...state
             }
         default: 
-            return defaultState
+            return state
     }
 }
+
+export default gnomeListReducer;

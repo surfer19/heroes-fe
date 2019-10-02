@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from "react-redux"
-import { fetchAllGnomes } from '../../redux/gnomeListActions';
 import { Link } from "react-router-dom";
+
+import { fetchAllGnomes } from '../../redux/GnomeListActions.js';
 
 class GnomeList extends React.Component {
     componentDidMount() {
         this.props.fetchAllGnomes()
-        
     }
     
     render() {
@@ -38,9 +37,11 @@ const mapDispatchToProps = (dispatch) => ({
     fetchAllGnomes: () => dispatch(fetchAllGnomes())
 })
 
-const mapStateToProps = state => ({
-  allGnomes: state.allGnomes
-})
+const mapStateToProps = state => {
+    return {
+        allGnomes: state.gnomeListReducer.allGnomes
+    }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(GnomeList);
 
