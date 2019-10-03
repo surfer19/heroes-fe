@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux"
 import { selectItemById } from "./selectors"
+import { hot } from 'react-hot-loader/root'
 import "./index.css"
 
 class GnomeDetail extends React.Component {
@@ -63,4 +64,7 @@ const mapStateToProps = (state, props) => {
 }
 
 
-export default connect(mapStateToProps)(GnomeDetail)
+// export default connect(mapStateToProps)(GnomeDetail)
+export default process.env.NODE_ENV === "development"  
+    ? hot(connect(mapStateToProps)(GnomeDetail)) 
+    : connect(mapStateToProps)(GnomeDetail)
