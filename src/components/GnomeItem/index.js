@@ -8,14 +8,14 @@ import {
 import './index.css'
 
 const GnomeItem = (props) => {
-    
+
     const getProfessions = props => {
         const gnomeProfs = props.gnome.professions
         const profLength = gnomeProfs.length;
         if (profLength === 0) return 'None'
         return gnomeProfs.map((prof, i) => {
             return (
-                <span> {prof}
+                <span key={i}> {prof}
                     { profLength !== i + 1 ? ', ' : null}
                 </span>
             )
@@ -24,13 +24,17 @@ const GnomeItem = (props) => {
     return (
         <Link to={`/detail/${props.gnome.id}`}>
             <Card>
-            <CardImg top width="100%" src={props.gnome.thumbnail} alt="Card image cap" />
-            <CardBody>
-            <CardTitle>{props.gnome.name}</CardTitle>
-            <CardSubtitle>Age: 19</CardSubtitle>
-            <CardText>Professions: {getProfessions(props)} </CardText>
-            </CardBody>
-        </Card>
+                <CardImg top width="100%" src={props.gnome.thumbnail} alt="Card image cap" />
+                <CardBody>
+                    <CardTitle>
+                        {props.gnome.name}
+                    </CardTitle>
+                    <CardSubtitle>Age: {props.gnome.age}</CardSubtitle>
+                    <CardText>
+                        Professions: {getProfessions(props)} 
+                    </CardText>
+                </CardBody>
+            </Card>
         </Link>
     );
 };

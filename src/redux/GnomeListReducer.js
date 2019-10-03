@@ -5,7 +5,7 @@ import {
 } from "./gnomeListActions";
 
 const defaultState = {
-    allGnomes: []   
+    allGnomes: []
 }
 
 const gnomeListReducer = (state = defaultState, action) => {
