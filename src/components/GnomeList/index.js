@@ -17,11 +17,10 @@ class GnomeList extends React.Component {
         }
     }
     componentDidMount() {
-        this.props.fetchAllGnomes()
+        this.props.fetchAllGnomes();
     }
 
-    loadMoreGnomes(page) {
-        console.log('loadMoreGnomes PAGE=', page)
+    loadMoreGnomes() {
         const toLoad = this.state.gnomesToLoad.length
         const nextNotLoadedItems = this.props.allGnomes.slice(
             toLoad,
@@ -33,14 +32,12 @@ class GnomeList extends React.Component {
                 gnomesToLoad: this.state.gnomesToLoad,
                 loadMore: false
             });
-            return
+            return;
         }
-        console.log ('this.state.gnomesToLoad.length', this.state.gnomesToLoad.length)
         this.setState({
             gnomesToLoad: this.state.gnomesToLoad.concat(nextNotLoadedItems),
             loadMore: true
         });
-        console.log('this.state', this.state)
     }
     
     render() {

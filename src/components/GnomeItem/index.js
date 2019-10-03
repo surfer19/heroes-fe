@@ -23,7 +23,7 @@ const GnomeItem = (props) => {
     }
     return (
         <Link to={`/detail/${props.gnome.id}`}>
-            <Card>
+            <Card className="shadow">
                 <CardImg top width="100%" src={props.gnome.thumbnail} alt="Card image cap" />
                 <CardBody>
                     <CardTitle>

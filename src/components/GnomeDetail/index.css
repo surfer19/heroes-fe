@@ -1,25 +1,22 @@
-/*
-*
-* ==========================================
-* CUSTOM UTIL CLASSES
-* ==========================================
-*
-*/
 .profile-header {
     transform: translateY(5rem);
 }
 
-
-/*
-*
-* ==========================================
-* FOR DEMO PURPOSE
-* ==========================================
-*
-*/
 body {
     background: #654ea3;
     background: -webkit-linear-gradient(to right, #654ea3, #eaafc8);
     background: linear-gradient(to right, #654ea3, #eaafc8);
     min-height: 100vh;
+}
+
+td.ico {
+    width: 20px;
+}
+
+.profile-header {
+    margin-top: -40px;
+}
+
+.fa-chevron-left {
+    display: inline;
 }
