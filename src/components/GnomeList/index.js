@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux"
 import GnomeItem from "../GnomeItem"
 import InfiniteScroll from "react-infinite-scroller";
+import "./index.css"
 import { filterGnomesByRange } from './selectors'
 
 import { fetchAllGnomes } from '../../redux/gnomeListActions';
@@ -44,32 +45,23 @@ class GnomeList extends React.Component {
         if(this.props.allGnomes.length > 0) {
             return (
                     <InfiniteScroll
+                        className="row"
                         pageStart={0}
                         loadMore={this.loadMoreGnomes.bind(this)}
                         hasMore={this.state.loadMore}
                         useWindow={true}
                         threshold={100}
                         loader={
-                            <div key="0">
-                                loading..
-                            {/* <ReactLoading
-                                type={"bars"}
-                                color={"red"}
-                                height={50}
-                                width={50}
-                            /> */}
-                            </div>
-                        }
-                        className="row">
-                        {this.state.gnomesToLoad.map((gnome, i) => (                            
+                            <div className="loader" key={0}>                                
+                                <Spinner color="warning" key="0" class="spinner"/>                                
+                            </div>}>
+                            
+                        {this.state.gnomesToLoad.map((gnome, i) => (
                             <div className="col col-sm-6 col-md-4 col-xl-3 mt-3" key={i}>
                                 <GnomeItem gnome={gnome}/>
                             </div>
-                        ))}
-                            
-                        {/* ))} */}
-                        </InfiniteScroll>                    
-                // </div>
+                        ))}          
+                    </InfiniteScroll>
             )
         } else {
             return (
@@ -78,8 +70,7 @@ class GnomeList extends React.Component {
                         position: "fixed",
                         width:"4rem",
                         height: "4rem",
-                        transformX: "translateX(-50%)",
-                        transformY: "translateY(-50%)",
+                        transform: "translateX(-50%,-50%)",
                         top: "50%",
                         left: "50%"
                     }}/>
@@ -97,7 +88,6 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = state => {
     return {
         allGnomes: state.gnomeListReducer.allGnomes
-        // loadMore: state.loadMore,
     }
 }
 
