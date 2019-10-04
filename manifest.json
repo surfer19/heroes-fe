@@ -3,7 +3,7 @@
   "name": "Create React App Sample",
   "icons": [
   ],
-  "start_url": "https://github.com/surfer19/heroes-fe",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
