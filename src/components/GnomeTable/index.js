@@ -14,7 +14,7 @@ const GnomeTable = (props) => {
         const { gnome, colIcons: icons, suffixMessages: suffixes, gnomeFriends } = props
         
         let rows = []
-        {Object.entries(gnome).forEach(([key, prop]) => {
+        Object.entries(gnome).forEach(([key, prop]) => {
             // some properties wont be show
             if (icons[key] === undefined) {
                 return;
@@ -49,7 +49,7 @@ const GnomeTable = (props) => {
                     {propTd}
                 </tr>
             )
-        })}
+        })
         return rows
     }
     

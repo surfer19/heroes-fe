@@ -4,6 +4,7 @@ import { selectItemById, selectFriendsIdsById } from "./selectors"
 import { hot } from 'react-hot-loader/root'
 import { Link } from "react-router-dom"
 import GnomeTable from "../GnomeTable/index"
+import { GnomeDetailHeader } from "../GnomeDetailHeader/index"
 import "./index.css"
 
 class GnomeDetail extends React.Component {
@@ -43,29 +44,10 @@ class GnomeDetail extends React.Component {
             hair_color: 'hair color',
         }
         
-        return (
-            
-        <div className="row py-5 px-4">
-            <div className="col-12 col-xl-10 mx-auto">
-                <div className="bg-white shadow rounded ">
-                    <div className="px-4 pt-0 pb-4 bg-dark">
-                        <Link to={'/'} className="btn btn-dark btn-sm mt-4">
-                            <i className="fa fa-chevron-left"></i>
-                        </Link>
-                        <div className="media align-items-end profile-header">
-                            <div className="profile mr-3">
-                                <img src={gnome.thumbnail} alt="..." width="150" className="rounded mb-2 img-thumbnail"/>                                
-                            </div>
-                            <div className="media-body mb-5 text-white">
-                                <h4 className="mt-0 mb-0">{gnome.name}</h4>
-                                <p className="small mb-4"> 
-                                <i className="fa fa-map-marker mr-2" aria-hidden="true"></i>
-                                    Brastlewark
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        return (   
+            <div className="row py-5 px-4">
+                <div className="col-12 col-xl-10 mx-auto">
+                    <GnomeDetailHeader gnome={gnome}/>
 
                     <div className="bg-light pl-4 pt-5 pb-5 pr-4">
                         <h3 className="mt-3">Gnome info:</h3>

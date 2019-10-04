@@ -7,8 +7,13 @@
 }
 
 .card {
+    transition: all .4s ease-in-out;
     min-height: 100%;
     border: 0!important;
+}
+
+.card:hover {
+    transform: scale(1.02);
 }
 
 @media (max-width: 575px) {

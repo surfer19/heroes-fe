@@ -51,7 +51,7 @@ class GnomeList extends React.Component {
                         useWindow={true}
                         threshold={100}
                         loader={
-                            <div className="loader" key={0}>                                
+                            <div className="loader" key={0}>
                                 <Spinner color="warning" key="0" className="spinner"/>                                
                             </div>}>
                             
@@ -65,7 +65,7 @@ class GnomeList extends React.Component {
         } else {
             return (
                 <div>
-                    <Spinner color="dark" type="grow" style={{
+                    <Spinner color="light" type="grow" style={{
                         position: "fixed",
                         width:"4rem",
                         height: "4rem",
