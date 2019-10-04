@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { selectItemById } from "./selectors"
+import { selectItemById, selectFriendsIdsById } from "./selectors"
 import { hot } from 'react-hot-loader/root'
 import { Table } from 'reactstrap';
 import { Link } from "react-router-dom";
@@ -8,11 +8,14 @@ import GnomeTable from "../GnomeTable/index"
 import "./index.css"
 
 class GnomeDetail extends React.Component {
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render () {
         if (!this.props.gnomeData) {
-            return (<div>Something went wrong!</div>)
+            return (
+                <div>Something went wrong! <br/>
+                    <Link className="btn btn-outline-dark" to='/'>Return to main page </Link>
+                </div>
+            )
         }
         const gnomeRaw = this.props.gnomeData;
         const gnome = {
@@ -40,7 +43,7 @@ class GnomeDetail extends React.Component {
             height: 'cm',
             hair_color: 'hair color',
         }
-
+        
         return (
             
         <div className="row py-5 px-4">
@@ -72,7 +75,7 @@ class GnomeDetail extends React.Component {
                                 <GnomeTable gnome={gnome} colIcons={iconsColOne} suffixMessages={suffixMessages}/>
                             </div>
                             <div className="col-12 col-md-9">
-                                <GnomeTable gnome={gnome} colIcons={iconsColTwo}/>
+                                <GnomeTable gnome={gnome} colIcons={iconsColTwo} gnomeFriends={this.props.gnomeFriends}/>
                                 {/* <Table borderless>
                                     <tbody>
                                         <tr>
@@ -117,12 +120,11 @@ class GnomeDetail extends React.Component {
 
 const mapStateToProps = (state, props) => {
     return {
-        gnomeData: selectItemById(state, props.match.params.id)
+        gnomeData: selectItemById(state, props.match.params.id),
+        gnomeFriends: selectFriendsIdsById(state, props.match.params.id)
     }
 }
 
-
-// export default connect(mapStateToProps)(GnomeDetail)
 export default process.env.NODE_ENV === "development"  
     ? hot(connect(mapStateToProps)(GnomeDetail)) 
     : connect(mapStateToProps)(GnomeDetail)

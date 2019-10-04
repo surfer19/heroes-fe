@@ -8,7 +8,9 @@ const GnomeTable = (props) => {
         return <i className={`fa ${icons[key]}`}></i>
     }
     
-    const generateRows = (gnome, icons, suffixes) => {
+    const generateRows = () => {
+        const { gnome, colIcons: icons, suffixMessages: suffixes, gnomeFriends } = props
+        
         let rows = []
         {Object.entries(gnome).forEach(([key, prop]) => {
             // some properties wont be show
@@ -22,7 +24,7 @@ const GnomeTable = (props) => {
                 let spans = prop.map((propItem, id) => {
                     return (key === 'friends')
                         // generate link
-                        ? <Link to={`/detail/5`} key={id}>{propItem} </Link>
+                        ? <Link to={`/detail/${gnomeFriends[propItem]}`} key={id}>{propItem} </Link>
                         // generate string
                         : <span key={id}>{propItem} </span>
                 })
@@ -48,15 +50,11 @@ const GnomeTable = (props) => {
         })}
         return rows
     }
-
-    const gnome = props.gnome;
-    const icons = props.colIcons;
-    const suffixes = props.suffixMessages;
-
-    return (
+    
+    return (        
         <Table borderless>
             <tbody>
-                {generateRows(gnome, icons, suffixes)}
+                {generateRows(props)}
             </tbody>
         </Table>
     );
