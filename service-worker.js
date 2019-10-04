@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/surfer19/heroes-fe/precache-manifest.81cdd8a33ebc42c0f4cf394883147166.js"
+  "/surfer19/heroes-fe/precache-manifest.10a50f71450157e32c465fef319c6884.js"
 );
 
 self.addEventListener('message', (event) => {
