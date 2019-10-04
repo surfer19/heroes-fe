@@ -2,7 +2,7 @@
   "name": "heroes-fe",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://github.com/surfer19/heroes-fe",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -26,7 +26,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +48,7 @@
   "devDependencies": {
     "eslint": "^6.5.0",
     "eslint-plugin-react": "^7.14.3",
+    "gh-pages": "^2.1.1",
     "redux-logger": "^3.0.6"
   }
 }
