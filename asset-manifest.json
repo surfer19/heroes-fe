@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/surfer19/heroes-fe/static/css/main.9ed39a19.chunk.css",
+    "main.js": "/surfer19/heroes-fe/static/js/main.ecbc44c6.chunk.js",
+    "main.js.map": "/surfer19/heroes-fe/static/js/main.ecbc44c6.chunk.js.map",
+    "runtime-main.js": "/surfer19/heroes-fe/static/js/runtime-main.2c673e9f.js",
+    "runtime-main.js.map": "/surfer19/heroes-fe/static/js/runtime-main.2c673e9f.js.map",
+    "static/css/2.510409cd.chunk.css": "/surfer19/heroes-fe/static/css/2.510409cd.chunk.css",
+    "static/js/2.e3c45895.chunk.js": "/surfer19/heroes-fe/static/js/2.e3c45895.chunk.js",
+    "static/js/2.e3c45895.chunk.js.map": "/surfer19/heroes-fe/static/js/2.e3c45895.chunk.js.map",
+    "index.html": "/surfer19/heroes-fe/index.html",
+    "precache-manifest.10a50f71450157e32c465fef319c6884.js": "/surfer19/heroes-fe/precache-manifest.10a50f71450157e32c465fef319c6884.js",
+    "service-worker.js": "/surfer19/heroes-fe/service-worker.js",
+    "static/css/2.510409cd.chunk.css.map": "/surfer19/heroes-fe/static/css/2.510409cd.chunk.css.map",
+    "static/css/main.9ed39a19.chunk.css.map": "/surfer19/heroes-fe/static/css/main.9ed39a19.chunk.css.map"
+  }
+}
