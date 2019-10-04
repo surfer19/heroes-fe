@@ -10,13 +10,16 @@ export const FETCH_GNOMES_BEGIN = "FETCH_GNOMES_BEGIN"; // TODO: loading
 export const FETCH_GNOMES_SUCCESS = "FETCH_GNOMES_SUCCESS";
 export const FETCH_GNOMES_FAILURE = "FETCH_GNOMES_FAILURE"; //TODO:
 
+// filtered
+export const FETCH_FILTERED_GNOMES_SUCCESS = "FETCH_FILTERED_GNOMES_SUCCESS";
+
 /*
  * FUNCTIONS
  */
 
 // fetch gnomes
 export const fetchAllGnomes = () => {
-    return async dispatch => { //         
+    return async dispatch => {
         try {
             dispatch(fetchAllGnomesBegin())
             // for testing purpose
@@ -25,7 +28,6 @@ export const fetchAllGnomes = () => {
             const response = (await axios.get(
                 "http://raw.githubusercontent.com/rrafols/mobile_test/master/data.json"
             )).data;
-            console.log('response', response.data)
             // const response = mockData;
             // success
             dispatch(fetchAllGnomesSuccess(response))
@@ -53,5 +55,18 @@ function fetchAllGnomesFailure(err) {
     return {
         type: FETCH_GNOMES_FAILURE,
         error: err
+    }
+}
+
+export const fetchFilteredGnomes = (gnomes) => {
+    return async dispatch => {
+        dispatch(fetchFilteredGnomesSuccess(gnomes))
+    }
+}
+
+function fetchFilteredGnomesSuccess(gnomes) {
+    return {
+        type: FETCH_FILTERED_GNOMES_SUCCESS,
+        payload: gnomes
     }
 }

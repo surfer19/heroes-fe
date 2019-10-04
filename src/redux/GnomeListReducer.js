@@ -1,11 +1,13 @@
 import { 
     FETCH_GNOMES_BEGIN, 
     FETCH_GNOMES_SUCCESS, 
-    FETCH_GNOMES_FAILURE 
+    FETCH_GNOMES_FAILURE ,
+    FETCH_FILTERED_GNOMES_SUCCESS
 } from "./gnomeListActions";
 
 const defaultState = {
-    allGnomes: []
+    allGnomes: [],
+    filteredGnomes: []
 }
 
 const gnomeListReducer = (state = defaultState, action) => {
@@ -22,6 +24,11 @@ const gnomeListReducer = (state = defaultState, action) => {
         case FETCH_GNOMES_FAILURE:
             return {
                 ...state
+            }
+        case FETCH_FILTERED_GNOMES_SUCCESS: 
+            return {
+                ...state,
+                filteredGnomes: action.payload
             }
         default: 
             return state

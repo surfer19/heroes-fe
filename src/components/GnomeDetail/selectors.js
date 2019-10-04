@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const selectItems = state => state.gnomeListReducer.allGnomes
+export const selectItems = state => state.gnomeListReducer.allGnomes
 const selectId = (state, itemId) => itemId; 
 
 export const selectItemById = createSelector( 

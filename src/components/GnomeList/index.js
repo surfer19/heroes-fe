@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import GnomeItem from "../GnomeItem"
 import InfiniteScroll from "react-infinite-scroller";
 import "./index.css"
-
-import { fetchAllGnomes } from '../../redux/gnomeListActions';
-import { Spinner } from 'reactstrap';
+import { selectUniqueProfessions, selectGnomesByProfession } from "./selectors"
+import { fetchAllGnomes, fetchFilteredGnomes } from '../../redux/gnomeListActions';
+import { Spinner, FormGroup, Input} from 'reactstrap';
 
 class GnomeList extends React.Component {
     constructor(props) {
@@ -22,12 +22,13 @@ class GnomeList extends React.Component {
 
     loadMoreGnomes() {
         const toLoad = this.state.gnomesToLoad.length
-        const nextNotLoadedItems = this.props.allGnomes.slice(
+        const baseGnomes =  this.props.filteredGnomes.length > 0 ? this.props.filteredGnomes : this.props.allGnomes 
+        const nextNotLoadedItems = baseGnomes.slice( // slice 20 more items
             toLoad,
             toLoad + 20
         );
 
-        if (toLoad >= this.props.allGnomes.length) {
+        if (toLoad >= baseGnomes.length) {
             this.setState({
                 gnomesToLoad: this.state.gnomesToLoad,
                 loadMore: false
@@ -39,28 +40,51 @@ class GnomeList extends React.Component {
             loadMore: true
         });
     }
+
+    handleChange(props, e) {
+        const gnomesByProfession = selectGnomesByProfession(props, e.target.value)
+        this.props.fetchFilteredGnomes(gnomesByProfession)
+        // reset loaded gnomes invoke loadMoreGnomes()        
+        this.setState({
+            gnomesToLoad: []
+        })        
+    }
     
     render() {
         if(this.props.allGnomes.length > 0) {
             return (
-                    <InfiniteScroll
-                        className="row"
-                        pageStart={0}
-                        loadMore={this.loadMoreGnomes.bind(this)}
-                        hasMore={this.state.loadMore}
-                        useWindow={true}
-                        threshold={100}
-                        loader={
-                            <div className="loader" key={0}>
-                                <Spinner color="warning" key="0" className="spinner"/>                                
-                            </div>}>
-                            
-                        {this.state.gnomesToLoad.map((gnome, i) => (
-                            <div className="col-12 col-sm-6 col-md-4 col-xl-3 mt-4" key={i}>
-                                <GnomeItem gnome={gnome}/>
+                    <div>
+                        <div className="row justify-content-end">
+                            <div className="col col-lg-3">
+                                <FormGroup className="mt-4">
+                                    <Input type="select" name="select" onChange={(e) => this.handleChange(this.props, e)}>
+                                        <option selected="selected">Filter Gnomes by job</option>
+                                        {this.props.jobTypes.map(type =>
+                                            <option value={type}>{type}</option>
+                                        )}            
+                                    </Input>
+                                </FormGroup>
                             </div>
-                        ))}          
-                    </InfiniteScroll>
+                        </div>
+                        <InfiniteScroll
+                            className="row"
+                            pageStart={0}
+                            loadMore={this.loadMoreGnomes.bind(this)}
+                            hasMore={this.state.loadMore}
+                            useWindow={true}
+                            threshold={200}
+                            loader={
+                                <div className="loader" key={0}>
+                                    <Spinner color="warning" key="0" className="spinner"/>                                
+                                </div>}>
+                                
+                            {this.state.gnomesToLoad.map((gnome, i) => (
+                                <div className="col-12 col-sm-6 col-md-4 col-xl-3 mt-4" key={i}>
+                                    <GnomeItem gnome={gnome}/>
+                                </div>
+                            ))}          
+                        </InfiniteScroll>
+                    </div>
             )
         } else {
             return (
@@ -79,14 +103,16 @@ class GnomeList extends React.Component {
     }
 }
 
-
 const mapDispatchToProps = (dispatch) => ({
-    fetchAllGnomes: () => dispatch(fetchAllGnomes())
+    fetchAllGnomes: () => dispatch(fetchAllGnomes()),
+    fetchFilteredGnomes: (gnomes) => dispatch(fetchFilteredGnomes(gnomes))
 })
 
 const mapStateToProps = state => {
     return {
-        allGnomes: state.gnomeListReducer.allGnomes
+        allGnomes: state.gnomeListReducer.allGnomes,
+        filteredGnomes: state.gnomeListReducer.filteredGnomes,
+        jobTypes: selectUniqueProfessions(state)
     }
 }
 
