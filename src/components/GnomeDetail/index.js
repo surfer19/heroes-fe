@@ -76,26 +76,6 @@ class GnomeDetail extends React.Component {
                             </div>
                             <div className="col-12 col-md-9">
                                 <GnomeTable gnome={gnome} colIcons={iconsColTwo} gnomeFriends={this.props.gnomeFriends}/>
-                                {/* <Table borderless>
-                                    <tbody>
-                                        <tr>
-                                            <td className="ico">
-                                                <i className="fa fa-users"></i>
-                                            </td>
-                                            <td> 
-                                                {gnome.friends.length
-                                                    ? gnome.firstName + `'s friends are ` + gnome.friends
-                                                    : gnome.firstName + ' doesnt have any friends'}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="ico">
-                                                <i className="fa fa-briefcase"></i>
-                                            </td>
-                                            <td>{gnome.profession} y.o</td>
-                                        </tr>                      
-                                    </tbody>
-                                </Table> */}
                             </div>
                         </div>
                         <Link to={'/'} className="btn btn-dark btn-sm float-right">
@@ -104,17 +84,7 @@ class GnomeDetail extends React.Component {
                     </div>                
                 </div>
             </div>
-        
-
-/* 
-            // <div>
-            //     {gnome.name}
-            //     {gnome.age}
-            //     {gnome.weight}
-            //     <img src={gnome.thumbnail} alt="img"/>
-            // </div> */
-        )//}
-        // else return <div>nic</div>
+        )
     }
 }
 
