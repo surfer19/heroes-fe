@@ -7,7 +7,9 @@ const GnomeTable = (props) => {
     const getIconByKey = (icons, key) => {
         return <i className={`fa ${icons[key]}`}></i>
     }
-    
+    /*
+     * TODO: split function to components GnomeTableRow and GnomeTableRow
+     */
     const generateRows = () => {
         const { gnome, colIcons: icons, suffixMessages: suffixes, gnomeFriends } = props
         

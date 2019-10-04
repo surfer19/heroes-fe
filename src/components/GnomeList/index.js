@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 import GnomeItem from "../GnomeItem"
 import InfiniteScroll from "react-infinite-scroller";
 import "./index.css"
-import { filterGnomesByRange } from './selectors'
 
 import { fetchAllGnomes } from '../../redux/gnomeListActions';
 import { Spinner } from 'reactstrap';

@@ -2,8 +2,7 @@ import React from 'react'
 import { connect } from "react-redux"
 import { selectItemById, selectFriendsIdsById } from "./selectors"
 import { hot } from 'react-hot-loader/root'
-import { Table } from 'reactstrap';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import GnomeTable from "../GnomeTable/index"
 import "./index.css"
 

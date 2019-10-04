@@ -11,8 +11,8 @@
     border: 0!important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 575px) {
     .card-img-top {
-        height: auto;
+        height: 150px;
     }
 }
