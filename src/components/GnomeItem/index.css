@@ -12,3 +12,27 @@
 div > a:hover {
     text-decoration: none;
 }
+
+.pill, .pill:hover{
+    color: white;
+    padding: 5px 9px;
+    margin: 2px 2px;
+    display: inline-block;
+}
+
+.radius {
+    border-radius: 5px;
+}
+
+a.pill:hover {
+    background: #e56db7;
+    text-decoration: none;
+    
+}
+
+.red {
+    background: #c73d57;
+}
+.pink {
+    background: #da5f9a;
+}

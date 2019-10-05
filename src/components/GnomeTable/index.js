@@ -26,9 +26,9 @@ const GnomeTable = (props) => {
                 let spans = prop.map((propItem, id) => {
                     return (key === 'friends')
                         // generate link
-                        ? <Link to={`/detail/${gnomeFriends[propItem]}`} key={id}>{propItem} </Link>
+                        ? <Link className="pill pink radius" to={`/detail/${gnomeFriends[propItem]}`} key={id}>{propItem} </Link>
                         // generate string
-                        : <span key={id}>{propItem} </span>
+                        : <span className="pill red" key={id}>{propItem} </span>
                 })
                 // prop array is empty
                 if (!spans.length) {
