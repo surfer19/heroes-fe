@@ -6,9 +6,9 @@ import axios from "axios";
  */
 
 // fetch gnomes
-export const FETCH_GNOMES_BEGIN = "FETCH_GNOMES_BEGIN"; // TODO: loading
+export const FETCH_GNOMES_BEGIN = "FETCH_GNOMES_BEGIN";
 export const FETCH_GNOMES_SUCCESS = "FETCH_GNOMES_SUCCESS";
-export const FETCH_GNOMES_FAILURE = "FETCH_GNOMES_FAILURE"; //TODO:
+export const FETCH_GNOMES_FAILURE = "FETCH_GNOMES_FAILURE";
 
 // filtered
 export const FETCH_FILTERED_GNOMES_SUCCESS = "FETCH_FILTERED_GNOMES_SUCCESS";
