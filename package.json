@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://github.com/surfer19/heroes-fe",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "react": "^16.10.1",
     "react-app-rewire-hot-loader": "^2.0.1",
